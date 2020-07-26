@@ -18,6 +18,7 @@ function createWindow() {
 
   if (isDev) {
     win.loadURL("http://localhost:3000/index.html");
+    win.webContents.openDevTools();
   } else {
     // 'build/index.html'
     win.loadURL(`file://${__dirname}/../index.html`);
@@ -46,10 +47,6 @@ function createWindow() {
   installExtension(REACT_DEVELOPER_TOOLS)
     .then((name) => console.log(`Added Extension:  ${name}`))
     .catch((err) => console.log("An error occurred: ", err));
-
-  if (isDev) {
-    win.webContents.openDevTools();
-  }
 }
 
 app.on("ready", createWindow);
