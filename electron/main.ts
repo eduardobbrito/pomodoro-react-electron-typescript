@@ -9,8 +9,8 @@ let win: BrowserWindow | null = null;
 
 function createWindow() {
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 300,
+    height: 400,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -18,7 +18,7 @@ function createWindow() {
 
   if (isDev) {
     win.loadURL("http://localhost:3000/index.html");
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
   } else {
     // 'build/index.html'
     win.loadURL(`file://${__dirname}/../index.html`);
