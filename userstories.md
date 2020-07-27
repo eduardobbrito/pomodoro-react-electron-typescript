@@ -8,10 +8,10 @@
 
 ### **feature#01**
 
-- [ ] Use `moment` and `moment-duration-format` to handle minutes arithmetics
-- [ ] Add Session component w/ increment/decrement btns
-- [ ] Add Break component w/ increment/decrement btns
-- [ ] Add Control timer start/stop btn
+- [x] Use `moment` and `moment-duration-format` to handle minutes arithmetics
+- [x] Add Session component w/ increment/decrement btns
+- [x] Add Break component w/ increment/decrement btns
+- [x] Add Control timer start/stop btn
 
 ### **feature#02**
 
@@ -30,3 +30,7 @@
 
 - [ ] Add minimize to System Tray
 - [ ] Add Preferences (Default time for each timer, auto start next timer, handle notifications, handle sounds)
+
+## Known Issues
+
+- User can alter timer length after while it's running

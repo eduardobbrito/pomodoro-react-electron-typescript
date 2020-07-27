@@ -1,11 +1,7 @@
 import React from "react";
 import * as moment from "moment";
 
-const Break: React.FC<Props> = ({
-  sessionLength,
-  incrementSessionLengthByOneMinute,
-  decrementSessionLengthByOneMinute,
-}) => {
+const Break: React.FC<Props> = ({ sessionLength, updateLengthByOneMinute }) => {
   const sessionLengthInMinutes = moment
     .duration(sessionLength, "s")
     .asMinutes();
@@ -13,16 +9,15 @@ const Break: React.FC<Props> = ({
     <div>
       <p>Pomodoro</p>
       <p>{sessionLengthInMinutes}</p>
-      <button onClick={decrementSessionLengthByOneMinute}>-</button>
-      <button onClick={incrementSessionLengthByOneMinute}>+</button>
+      <button onClick={() => updateLengthByOneMinute(false, true)}>-</button>
+      <button onClick={() => updateLengthByOneMinute(true, true)}>+</button>
     </div>
   );
 };
 
 type Props = {
   sessionLength: number;
-  incrementSessionLengthByOneMinute: () => void;
-  decrementSessionLengthByOneMinute: () => void;
+  updateLengthByOneMinute: (increase: boolean, isPomodoro: boolean) => void;
 };
 
 export default Break;
