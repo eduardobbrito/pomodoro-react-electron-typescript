@@ -1,14 +1,20 @@
 import React from "react";
 import * as moment from "moment";
 
-const Break: React.FC<Props> = ({ breakLength, updateLengthByOneMinute }) => {
+const Break: React.FC<Props> = ({
+  breakLength,
+  updateLengthByOneMinute,
+  isTicking,
+}) => {
   const breakLengthInMinutes = moment.duration(breakLength, "s").asMinutes();
   return (
     <div>
       <p>Break</p>
       <p>{breakLengthInMinutes}</p>
-      <button onClick={() => updateLengthByOneMinute(false, false)}>-</button>
-      <button onClick={() => updateLengthByOneMinute(true, false)}>+</button>
+      <div className={isTicking ? "is-invisible" : "is-visible"}>
+        <button onClick={() => updateLengthByOneMinute(false, false)}>-</button>
+        <button onClick={() => updateLengthByOneMinute(true, false)}>+</button>
+      </div>
     </div>
   );
 };
@@ -17,6 +23,7 @@ const Break: React.FC<Props> = ({ breakLength, updateLengthByOneMinute }) => {
 type Props = {
   breakLength: number;
   updateLengthByOneMinute: (increase: boolean, isPomodoro: boolean) => void;
+  isTicking: boolean;
 };
 
 export default Break;

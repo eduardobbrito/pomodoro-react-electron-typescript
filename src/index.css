@@ -9,6 +9,16 @@ body {
   text-align: center;
 }
 
+.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.is-invisible {
+  opacity: 0;
+  visibility: hidden;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
