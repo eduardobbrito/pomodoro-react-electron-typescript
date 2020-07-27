@@ -33,5 +33,5 @@
 
 ## Known Issues
 
-- User can alter timer length after while it's running
-- When Break timer ends, it automatically loads another Break
+- [ ] User can alter timer length after while it's running
+- [x] When Break timer ends, it automatically loads another Break

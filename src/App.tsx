@@ -32,33 +32,28 @@ function App() {
     setTimeLeft(sessionLength);
   }, [sessionLength]);
 
+  useEffect(() => {
+    if (timeLeft === 0) {
+      audioElement?.current?.play();
+      if (currentSessionType === "Pomodoro") {
+        setCurrentSessionType("Break");
+        setTimeLeft(breakLength);
+      } else if (currentSessionType === "Break") {
+        setCurrentSessionType("Pomodoro");
+        setTimeLeft(sessionLength);
+      }
+    }
+  }, [breakLength, currentSessionType, sessionLength, timeLeft]);
+
   const isStarted = intervalId !== null;
 
   const handleStartStopClick = () => {
     if (isStarted) {
-      // Avoid error:
-      // Argument of type 'Timeout | null' is not assignable to parameter of type 'Timeout'.
-      // Type 'null' is not assignable to type 'Timeout'.
-      // @ts-ignore
-      clearInterval(intervalId);
+      if (intervalId) clearInterval(intervalId);
       setIntervalId(null);
     } else {
       const newIntervalId = setInterval(() => {
-        // @ts-ignore
-        setTimeLeft((previousTimeLeft) => {
-          const newTimeLeft = previousTimeLeft - 1;
-          if (newTimeLeft >= 0) {
-            return newTimeLeft;
-          }
-          audioElement?.current?.play();
-          if (currentSessionType === "Pomodoro") {
-            setCurrentSessionType("Break");
-            return breakLength;
-          } else if (currentSessionType === "Break") {
-            setCurrentSessionType("Pomodoro");
-            return sessionLength;
-          }
-        });
+        setTimeLeft((previousTimeLeft) => previousTimeLeft - 1);
       }, 1);
       setIntervalId(newIntervalId);
     }
