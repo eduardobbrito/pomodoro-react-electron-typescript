@@ -3,7 +3,7 @@
 - [x] User should have two different kinds of timers, one for Pomodoro Sessions and other for Breaks
 - [x] By standard, Pomodoro lasts 25 minutes and Breaks lasts 5 minutes
 - [x] User should be able to start and pause each timer
-- [ ] User should be able to reset both timers
+- [x] User should be able to reset both timers
 - [x] Once Pomodoro timer finishes, Break timer must begin immediatly
 
 ### **feature#01**
@@ -15,9 +15,9 @@
 
 ### **feature#02**
 
-- [ ] Add Reset btn
+- [x] Add Reset btn
 - [ ] Add styling
-- [ ] Add audio feedback
+- [x] Add audio feedback
 
 ### **feature#03**
 
@@ -34,3 +34,4 @@
 ## Known Issues
 
 - User can alter timer length after while it's running
+- When Break timer ends, it automatically loads another Break

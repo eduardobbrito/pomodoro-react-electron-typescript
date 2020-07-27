@@ -13,6 +13,7 @@ const Break: React.FC<Props> = ({ breakLength, updateLengthByOneMinute }) => {
   );
 };
 
+// https://github.com/typescript-cheatsheets/react-typescript-cheatsheet
 type Props = {
   breakLength: number;
   updateLengthByOneMinute: (increase: boolean, isPomodoro: boolean) => void;
